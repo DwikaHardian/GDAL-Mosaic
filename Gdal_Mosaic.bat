@@ -17,6 +17,7 @@ gdalinfo "Sul_Mosaic_2026_TW3.vrt"
 
 gdalbuildvrt "Sul_Mosaic_2026_TW3_1.vrt" *.tif
 
-gdalinfo "Sul_Mosaic_2026_TW3.vrt"
 
 gdal_translate "Sul_Mosaic_2026_TW3.vrt" "Sul_Mosaic_2026_TW3.tif" -co TILED=YES -co COMPRESS=LZW -co PREDICTOR=2 -co BIGTIFF=YES -co NUM_THREADS=ALL_CPUS
+
+gdalinfo "Sul_Mosaic_2026_TW3.tif"
