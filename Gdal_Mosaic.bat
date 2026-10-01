@@ -1,5 +1,5 @@
 Gdal_Mosaic
-@echo off
+
 
 gdalinfo --version
 
@@ -15,14 +15,8 @@ gdalbuildvrt -input_file_list tile_list.txt "Sul_Mosaic_2026_TW3.vrt"
 
 gdalinfo "Sul_Mosaic_2026_TW3.vrt"
 
-gdal_translate "Sul_Mosaic_2026_TW3.vrt" "Sul_Mosaic_2026_TW3.tif" ^
--co TILED=YES ^
--co COMPRESS=DEFLATE ^
--co PREDICTOR=2 ^
--co ZLEVEL=6 ^
--co BIGTIFF=YES ^
--co NUM_THREADS=ALL_CPUS
+gdalbuildvrt "Sul_Mosaic_2026_TW3_1.vrt" *.tif
 
-gdalinfo "Sul_Mosaic_2026_TW3.tif"
+gdalinfo "Sul_Mosaic_2026_TW3.vrt"
 
-pause
+gdal_translate "Sul_Mosaic_2026_TW3.vrt" "Sul_Mosaic_2026_TW3.tif" -co TILED=YES -co COMPRESS=LZW -co PREDICTOR=2 -co BIGTIFF=YES -co NUM_THREADS=ALL_CPUS
